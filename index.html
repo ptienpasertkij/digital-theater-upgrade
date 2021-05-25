@@ -1,0 +1,23 @@
+<!--This is a simple html form just for demonstration purposes-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Info Sender</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <form id="send" action="http://localhost:3000" method="post">
+        <div>
+          <input type="text" name="Task" placeholder="Task Description" />
+        </div>
+        <div>
+          <input type="text" name="Category" placeholder="Category" />
+        </div>
+        <div>
+          <textarea form="send" rows="20" cols="40" name="message"></textarea>
+          <input type="submit" name="submit" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
