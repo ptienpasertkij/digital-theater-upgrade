@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const json = require("./data.json");
+const PORT = process.env.PORT || 5000;
 var file;
 
 const server = http
@@ -59,6 +60,6 @@ const server = http
       }
     });
   })
-  .listen(3000, () => {
-    console.log("Server running on 3000");
+  .listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
   });
