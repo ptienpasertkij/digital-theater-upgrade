@@ -1,0 +1,20 @@
+{
+  "name": "digital-theater-upgrade",
+  "version": "1.0.0",
+  "description": "Digital theater project tracker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptienpasertkij/digital-theater-upgrade.git"
+  },
+  "author": "Paramintr Tienpasertkij",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ptienpasertkij/digital-theater-upgrade/issues"
+  },
+  "homepage": "https://github.com/ptienpasertkij/digital-theater-upgrade#readme"
+}

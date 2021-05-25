@@ -25,11 +25,12 @@ const server = http
 
     /*******GETS THE FORM DATA************/
     req.on("data", (data) => {
+      console.log(data)
       var arr = decodeURIComponent(data)
         .replace(/\+/g, " ")
         .replace("UserName=", "")
         .replace("Email=", "")
-        .replace("message=", "")
+        .replace("message=", "lolz")
         .split("&");
 
       var node = json.head;
