@@ -9,7 +9,7 @@ const server = http
     let file;
 
     try {
-      file = fs.readFileSync("./index.html");
+      file = fs.readFileSync("./home.html");
     } catch (e) {
       res.writeHead(404, { "content-type": "text/plain" });
       res.write("404 File Not Found!");
