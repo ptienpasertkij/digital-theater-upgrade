@@ -1,70 +1,56 @@
-{
-  "head": {
-    "head": {
-      "name": "Mint",
-      "email": "pt@b.com",
-      "message": "as;odfias",
-      "head": {
-        "name": "Mint",
-        "email": "pt@b.com",
-        "message": "sa;ldfasadffas",
-        "head": {
-          "name": "l;ala",
-          "email": "las@c.com",
-          "message": "as0ifjaoiwjfwef",
-          "head": {
-            "name": "l;ala",
-            "email": "las@c.com",
-            "message": "as0ifjaoiwjfwef",
-            "head": {
-              "name": "l;ala",
-              "email": "las@c.com",
-              "message": "as0ifjaoiwjfwef",
-              "head": {
-                "name": "Task=asdfj;lasj",
-                "email": "Category=oisjodsfjoi",
-                "message": "aiosdfj;lasdf",
-                "head": {
-                  "name": "Task=Task",
-                  "email": "Category=Category",
-                  "message": "lalala",
-                  "head": {
-                    "name": "Task=task",
-                    "email": "Category=cat2",
-                    "message": "lalalaoisdjh",
-                    "head": {
-                      "name": "Task=task",
-                      "email": "Category=cat2",
-                      "message": "lalalaoisdjh",
-                      "head": {
-                        "name": "Task=1",
-                        "email": "Category=2",
-                        "message": "2",
-                        "head": {
-                          "name": "Task=j",
-                          "email": "Category=j",
-                          "message": "jkhjkl",
-                          "head": {
-                            "name": "Task=j",
-                            "email": "Category=j",
-                            "message": "jkhjkl",
-                            "head": {
-                              "name": "Task=564645",
-                              "email": "Category=hgiukjjh",
-                              "message": "jkhgnjkl",
-                              "head": null
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+[
+  {
+    "taskID": "wmNnJMP6gfwhEvXpz4qDDX",
+    "task": "Task name",
+    "category": "Theater",
+    "date": "2021-05-26"
+  },
+  {
+    "taskID": "mSgehMPAEedSzd3fXvfS5Q",
+    "task": "Task name",
+    "category": "Theater",
+    "date": ""
+  },
+  {
+    "taskID": "iAmzCG5M3L5fQ4UjgFU23S",
+    "task": "Roar",
+    "category": "Theater",
+    "date": "2021-05-29"
+  },
+  {
+    "taskID": "p9Fb3uUNAvw5dGqa88b6Kc",
+    "task": "Task nameeee",
+    "category": "Theater",
+    "date": ""
+  },
+  {
+    "taskID": "2m4zrdrLF1Q2xcRTXWFdux",
+    "task": "Take Marcy out to poop",
+    "category": "Others",
+    "date": "2021-05-31"
+  },
+  {
+    "taskID": "aStHUqQqeaS5PPHkNxEPva",
+    "task": "Stringify",
+    "category": "Theater",
+    "date": "2021-06-02"
+  },
+  {
+    "taskID": "kuxdS1Ar47nunsp49nZCgh",
+    "task": "Test item",
+    "category": "Lobby",
+    "date": "2021-05-27"
+  },
+  {
+    "taskID": "f26q6hmf93ShX9pQnQDqCv",
+    "task": "Test Lobby 2",
+    "category": "Lobby",
+    "date": "2021-05-28"
+  },
+  {
+    "taskID": "cd8B35AHGtD54kEJakHhr4",
+    "task": "New Lab Task",
+    "category": "Lab",
+    "date": "2021-05-29"
   }
-}
+]

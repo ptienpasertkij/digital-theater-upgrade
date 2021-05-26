@@ -1,66 +1,85 @@
-const http = require("http");
+const express = require("express");
 const fs = require("fs");
-const json = require("./data.json");
-const PORT = process.env.PORT || 5000;
-var file;
+const app = express();
+const path = require("path");
+const dataFile = require("./data.json")
+const projectCategories = require("./categories.json");
+const shortuuid = require("short-uuid")
+const methodOverride = require('method-override')
 
-const server = http
-  .createServer(function (req, res) {
-    let file;
+app.use(express.static(path.join(__dirname, "/assets")));
+app.use(express.urlencoded({extended:true}));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
+// To 'fake' put/patch/delete requests:
+app.use(methodOverride('_method'))
 
-    try {
-      file = fs.readFileSync("./home.html");
-    } catch (e) {
-      res.writeHead(404, { "content-type": "text/plain" });
-      res.write("404 File Not Found!");
-      res.end();
-      return;
-    }
+app.get("/", (req, res) => {
+  console.log("Request made to home!")
+  res.render("home", {dataFile});
+});
 
-    if (file) {
-      res.writeHead(200, { "content-type": "text/html" });
-      res.write(file);
-      res.end();
-    }
 
-    /*******GETS THE FORM DATA************/
-    req.on("data", (data) => {
-      console.log(data)
-      var arr = decodeURIComponent(data)
-        .replace(/\+/g, " ")
-        .replace("UserName=", "")
-        .replace("Email=", "")
-        .replace("message=", "lolz")
-        .split("&");
+// Test page GET
+app.get("/test", (req, res) => {
+  res.render("todo.ejs");
+})
 
-      var node = json.head;
-      var next;
+// Test page POST
+app.post("/test", (req, res) => {
+  console.log(req.body);
+  res.redirect("/test");
+})
 
-      /****TURNS JSON INTO LINKED LIST OF FORM INPUT********/
-      while (node) {
-        next = node.head;
+app.get("/tasks", (req, res) => {
+  res.render("tasks/tasks-index", {dataFile, projectCategories})
+})
 
-        if (node.head == null) {
-          node.head = {
-            name: arr[0],
-            email: arr[1],
-            message: arr[2],
-            head: null,
-          };
+app.post("/tasks", (req, res) => {
+  const { task, category, date } = req.body;
+  // console.log({"taskID": shortuuid.generate(), task, category, date});
+  dataFile.push({"taskID": shortuuid.generate(), task, category, date});
+  fs.writeFileSync('data.json', JSON.stringify(dataFile,null,2));
+  res.redirect("/tasks");
+})
 
-          /**********WRITES THE NEW JSON TO THE JSON FILE****************/
-          fs.writeFile("./data.json", JSON.stringify(json, null, 2), (err) => {
-            if (err) {
-              throw err;
-            }
-          });
-          break;
-        } else {
-          node = next;
-        }
-      }
-    });
-  })
-  .listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
-  });
+app.get("/tasks/:id/edit", (req, res) => {
+  const {id} = req.params;
+  const task = dataFile.find(task => task.taskID === id);
+  res.render("tasks/tasks-edit", {task});
+})
+
+app.patch("/tasks/:id", (req, res) => {
+  const {id} = req.params;
+  const foundTask = dataFile.find(task => task.taskID === id);
+
+  const { taskID, task, category , date} = req.body
+  foundTask = {taskID, task, category , date};
+
+  console.log("You are updating a task");
+})
+
+app.get("/data", (req, res) => {
+  res.render("data-entry.ejs")
+})
+
+app.post("/data", (req, res) => {
+  console.log("Someone just tried to post something bro.");
+  console.log(req.body)
+  const { task, category , date} = req.body
+  let write_data = {"task":task, "category":category, "date":date}
+  console.log(write_data)
+  dataFile.push(write_data)
+  // console.log(dataFile)
+  meow = JSON.stringify(dataFile, null, 2);
+  console.log(meow)
+  fs.writeFileSync('data.json', meow)
+  res.redirect("/")
+  // res.render("data-entry.ejs")
+})
+
+app.get("*", (req, res) => {
+  res.render("page-not-found");
+})
+
+app.listen(5000, () => console.log("LISTENING ON PORT 5000"));

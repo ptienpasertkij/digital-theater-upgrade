@@ -1,0 +1,12 @@
+<%- include("partials/head")  %> 
+<form action="/data" method="POST">
+  <input type="text" id="task" name="task" value="Task name" />
+  <select id="category" name="category">
+      <option value="theater">Theater</option>
+      <option value="lobby">Lobby</option>
+      <option value="lab">Lab</option>
+      <option value="other">Other</option>
+  </select>
+  <input type="date" id="date" name="date"/>
+  <input type="submit" value="Submit" />
+</form>

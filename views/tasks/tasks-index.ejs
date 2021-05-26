@@ -1,0 +1,20 @@
+<%- include("../partials/head") %> 
+
+<% projectCategories.forEach(category => { %>
+<h2><%= category %> </h2> 
+<ul>
+    <li>
+        <form action="/tasks" method="post">
+            <input type="text" id="task-input" name="task" value="Add new task"/>
+            <input type="text" hidden id="category" name="category" value="<%=category%>">
+            <input type="date" id="date" name="date"/>
+            <input type="submit" value="Add">
+        </form>
+    </li>
+    <% dataFile.forEach(task_item => { %>
+        <% if (task_item.category == category) { %>
+                <li><%= task_item.task %> <%= task_item.date %> Edit Delete</li>
+        <% } %>
+    <% }) %>
+</ul>
+<% }) %>
