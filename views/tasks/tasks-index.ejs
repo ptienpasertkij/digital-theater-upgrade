@@ -13,7 +13,11 @@
     </li>
     <% dataFile.forEach(task_item => { %>
         <% if (task_item.category == category) { %>
-                <li><%= task_item.task %> <%= task_item.date %> Edit Delete</li>
+                <li> 
+                    <form method="POST" action="/tasks/<%= task_item.taskID %>?_method=DELETE">
+                        <%= task_item.task %> <%= task_item.date %> <a href="/tasks/<%= task_item.taskID %>/edit">Edit</a>
+                         <button>Delete</button>
+                    </form></li>
         <% } %>
     <% }) %>
 </ul>

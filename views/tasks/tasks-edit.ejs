@@ -1,7 +1,11 @@
 <h1>Edit</h1>
 <form action="/tasks/<%=task.taskID%>?_method=PATCH" method="post">
-    <input type="text" id="task-input" name="task" value="<%= task.task %> "/>  
-    <input type="text" id="category" name="category" value="<%=task.category%>">
-    <input type="date" id="date" name="date" value="<%= task.date %> "/>
+    <input type="text" id="task-input" name="task" value="<%= task.task %>"/>  
+    <select id="category" name="category">
+        <% projectCategories.forEach(category => { %>
+            <option value="<%= category %>"<%- category == task.category ? "selected" : "" %>  ><%= category %></option>
+        <% }) %>
+      </select>
+    <input type="date" id="date" name="date" value="<%= task.date %>"/>
     <input type="submit" value="Save">
 </form>
