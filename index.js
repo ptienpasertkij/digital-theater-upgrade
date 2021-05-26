@@ -47,17 +47,32 @@ app.post("/tasks", (req, res) => {
 app.get("/tasks/:id/edit", (req, res) => {
   const {id} = req.params;
   const task = dataFile.find(task => task.taskID === id);
-  res.render("tasks/tasks-edit", {task});
+  console.log(task.date);
+  res.render("tasks/tasks-edit", {task, projectCategories});
 })
 
 app.patch("/tasks/:id", (req, res) => {
+  let newDataFile = dataFile;
   const {id} = req.params;
   const foundTask = dataFile.find(task => task.taskID === id);
+  const index_found_task = dataFile.findIndex(task => task.taskID === id);
+  console.log(newDataFile[index_found_task]);
 
   const { taskID, task, category , date} = req.body
-  foundTask = {taskID, task, category , date};
+  console.log(date);
+  newDataFile[index_found_task] = {"taskID":id, task, category , date};
+  console.log(newDataFile);
+  fs.writeFileSync('data.json', JSON.stringify(newDataFile, null, 2));
 
   console.log("You are updating a task");
+  res.redirect("/tasks")
+})
+
+app.delete("/tasks/:id", (req, res) => {
+  const { id } = req.params;
+  newDataFile = dataFile.filter(task => task.taskID !== id);
+  fs.writeFileSync('data.json', JSON.stringify(newDataFile, null, 2));
+  res.redirect('/tasks');
 })
 
 app.get("/data", (req, res) => {
