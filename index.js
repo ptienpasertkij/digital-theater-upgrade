@@ -15,12 +15,78 @@ app.set("views", path.join(__dirname, "/views"));
 // To 'fake' put/patch/delete requests:
 app.use(methodOverride('_method'))
 
+// Make local copy of dataFile to prevent overwriting of real database
+local_data_file = dataFile;
+
+// HELPER FUNCTIONS
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+function formatDate() {
+  var d = new Date();
+  month = '0' + (d.getMonth() + 1);
+  day = '0' + d.getDate();
+  year = d.getFullYear();
+  return [year, month.slice(-2), day.slice(-2)].join('-');
+}
+
+function getMinDate(tasks_array) {
+  let min_date = tasks_array.reduce((current_min_date, i_task) => i_task.date < current_min_date ? i_task.date : current_min_date, tasks_array[0].date)
+  min_date = {year:parseInt(min_date.slice(0,4)), month:parseInt(min_date.slice(5,7))};
+  return min_date;
+}
+
+function getMaxDate(tasks_array) {
+  max_date = tasks_array.reduce((current_max_date, i_task) => i_task.date > current_max_date ? i_task.date : current_max_date, tasks_array[0].date)
+  max_date = {year:parseInt(max_date.slice(0,4)), month:parseInt(max_date.slice(5,7))};
+  return max_date;
+}
+//////////
+
+// HOME PAGE
 app.get("/", (req, res) => {
+  local_data_file.sort((a, b) => (a.date > b.date) ? 1:-1);
   console.log("Request made to home!")
-  res.render("home", {dataFile});
+  let min_date = getMinDate(local_data_file);
+  let max_date = getMaxDate(local_data_file);
+  res.render("home", {local_data_file, projectCategories, min_date, max_date, months});
 });
 
+app.get("/tasks", (req, res) => {
+  local_data_file.sort((a, b) => (a.date > b.date) ? 1:-1);
+  today = formatDate();
+  fs.writeFileSync('data.json', JSON.stringify(local_data_file, null, 2));
+  res.render("tasks/tasks-index", {local_data_file, projectCategories, today});
+})
 
+app.post("/tasks", (req, res) => {
+  const { task, category, date } = req.body;
+  local_data_file.push({"taskID": shortuuid.generate(), task, category, date});
+  res.redirect("/tasks");
+})
+
+app.get("/tasks/:id/edit", (req, res) => {
+  const {id} = req.params;
+  const task = local_data_file.find(task => task.taskID === id);
+  console.log(task.date);
+  res.render("tasks/tasks-edit", {task, projectCategories});
+})
+
+app.patch("/tasks/:id", (req, res) => {
+  const {id} = req.params;
+  const index_found_task = local_data_file.findIndex(task => task.taskID === id);
+  const { task, category , date} = req.body
+  console.log(date);
+  local_data_file[index_found_task] = {"taskID":id, task, category , date};
+  console.log("You are updating a task");
+  res.redirect("/tasks")
+})
+
+app.delete("/tasks/:id", (req, res) => {
+  const { id } = req.params;
+  local_data_file = local_data_file.filter(task => task.taskID !== id);
+  res.redirect('/tasks');
+})
+
+// TEST PAGE SECTION
 // Test page GET
 app.get("/test", (req, res) => {
   res.render("todo.ejs");
@@ -32,66 +98,8 @@ app.post("/test", (req, res) => {
   res.redirect("/test");
 })
 
-app.get("/tasks", (req, res) => {
-  res.render("tasks/tasks-index", {dataFile, projectCategories})
-})
-
-app.post("/tasks", (req, res) => {
-  const { task, category, date } = req.body;
-  // console.log({"taskID": shortuuid.generate(), task, category, date});
-  dataFile.push({"taskID": shortuuid.generate(), task, category, date});
-  fs.writeFileSync('data.json', JSON.stringify(dataFile,null,2));
-  res.redirect("/tasks");
-})
-
-app.get("/tasks/:id/edit", (req, res) => {
-  const {id} = req.params;
-  const task = dataFile.find(task => task.taskID === id);
-  console.log(task.date);
-  res.render("tasks/tasks-edit", {task, projectCategories});
-})
-
-app.patch("/tasks/:id", (req, res) => {
-  let newDataFile = dataFile;
-  const {id} = req.params;
-  const foundTask = dataFile.find(task => task.taskID === id);
-  const index_found_task = dataFile.findIndex(task => task.taskID === id);
-  console.log(newDataFile[index_found_task]);
-
-  const { taskID, task, category , date} = req.body
-  console.log(date);
-  newDataFile[index_found_task] = {"taskID":id, task, category , date};
-  console.log(newDataFile);
-  fs.writeFileSync('data.json', JSON.stringify(newDataFile, null, 2));
-
-  console.log("You are updating a task");
-  res.redirect("/tasks")
-})
-
-app.delete("/tasks/:id", (req, res) => {
-  const { id } = req.params;
-  newDataFile = dataFile.filter(task => task.taskID !== id);
-  fs.writeFileSync('data.json', JSON.stringify(newDataFile, null, 2));
-  res.redirect('/tasks');
-})
-
-app.get("/data", (req, res) => {
-  res.render("data-entry.ejs")
-})
-
-app.post("/data", (req, res) => {
-  console.log("Someone just tried to post something bro.");
-  console.log(req.body)
-  const { task, category , date} = req.body
-  let write_data = {"task":task, "category":category, "date":date}
-  console.log(write_data)
-  dataFile.push(write_data)
-  // console.log(dataFile)
-  meow = JSON.stringify(dataFile, null, 2);
-  console.log(meow)
-  fs.writeFileSync('data.json', meow)
-  res.redirect("/")
-  // res.render("data-entry.ejs")
+app.get("/download", (req, res) => {
+  res.download("./data.json");
 })
 
 app.get("*", (req, res) => {

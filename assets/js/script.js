@@ -14,10 +14,6 @@ $(document).ready(function () {
       de.appendTo($(this));
     }
   });
-  $("h1").click(function () {
-   console.log("Clicked");
-   $("h1").css("color","red");
- });
 });
 
 

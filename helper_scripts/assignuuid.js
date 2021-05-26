@@ -1,11 +1,11 @@
 const short = require("short-uuid");
-const dataFile = require("../data.json");
+const local_data_file = require("../data.json");
 const fs = require("fs");
 
-console.log(dataFile);
-dataFile.forEach((element, index) => {
+console.log(local_data_file);
+local_data_file.forEach((element, index) => {
   element["taskID"] = short.generate();
 });
 console.log("NEW DATA");
-console.log(dataFile);
-fs.writeFileSync('./data.json', JSON.stringify(dataFile,null,2));
+console.log(local_data_file);
+fs.writeFileSync('./data.json', JSON.stringify(local_data_file,null,2));

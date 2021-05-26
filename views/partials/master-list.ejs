@@ -1,3 +1,62 @@
-<% for (let item of dataFile) { %>
-    <li id=<%= item.taskID %>>ID<%= item.taskID %> <%= item.task %> </li>
-<% } %>
+<table style="width:100%; border:1px solid black">
+    <tr>
+      <th>Month Year</th>
+      <% projectCategories.forEach(project_category => { %>
+        <th><%= project_category %> </th> 
+      <% }) %>
+    </tr>
+    <% for( let year = min_date.year ; year <= max_date.year; year++ ) { %>
+        <% if (year === min_date.year) { %>
+            <% for( let month = min_date.month; month <= 12; month++ ) { %>
+                <tr>
+                    <td>
+                        <%= months[month-1] %> <%= year %>
+                    </td>
+                    <% projectCategories.forEach(col_project_category => { %>
+                        <td>
+                            <% local_data_file.forEach(task_item => { %>
+                            <% if (task_item.category === col_project_category && parseInt(task_item.date.slice(5,7)) == month && parseInt(task_item.date.slice(0,4)) == year) { %>
+                                <%= task_item.task %><br>
+                            <% } %> 
+                            <% }) %>
+                        </td>
+                    <% }) %>
+                </tr>
+            <% } %>
+        <% } else if (year === max_date.year) { %>
+            <% for( let month = 1; month <= max_date.month; month++ ) { %>
+                <tr>
+                    <td>
+                        <%= months[month-1] %> <%= year %>
+                    </td>
+                    <% projectCategories.forEach(col_project_category => { %>
+                        <td>
+                            <% local_data_file.forEach(task_item => { %>
+                            <% if (task_item.category === col_project_category && parseInt(task_item.date.slice(5,7)) == month && parseInt(task_item.date.slice(0,4)) == year) { %>
+                                <%= task_item.task %><br>
+                            <% } %> 
+                            <% }) %>
+                        </td>
+                    <% }) %>
+                </tr>
+            <% } %>
+        <% } else { %>
+            <% for( let month = 1; month <= 12; month++ ) { %>
+                <tr>
+                    <td>
+                        <%= months[month-1] %> <%= year %>
+                    </td>
+                    <% projectCategories.forEach(col_project_category => { %>
+                        <td>
+                            <% local_data_file.forEach(task_item => { %>
+                            <% if (task_item.category === col_project_category && parseInt(task_item.date.slice(5,7)) == month && parseInt(task_item.date.slice(0,4)) == year) { %>
+                                <%= task_item.task %><br>
+                            <% } %> 
+                            <% }) %>
+                        </td>
+                    <% }) %>
+                </tr>
+            <% } %>
+        <% } %> 
+    <% } %>
+  </table>
