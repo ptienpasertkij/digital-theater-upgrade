@@ -6,6 +6,7 @@ const dataFile = require("./data.json")
 const projectCategories = require("./categories.json");
 const shortuuid = require("short-uuid")
 const methodOverride = require('method-override')
+const PORT = process.env.PORT || 5000
 
 app.use(express.static(path.join(__dirname, "/assets")));
 app.use(express.urlencoded({extended:true}));
@@ -82,4 +83,4 @@ app.get("*", (req, res) => {
   res.render("page-not-found");
 })
 
-app.listen(5000, () => console.log("LISTENING ON PORT 5000"));
+app.listen(PORT, () => console.log(`LISTENING ON PORT ${ PORT }`));
