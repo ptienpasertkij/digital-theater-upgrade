@@ -1,4 +1,12 @@
-<table style="width:100%; border:1px solid black">
+<p></p>
+<div id="master-table-div">
+<table style="width:100%; border:1px solid black" id="master-table">
+    <colgroup>
+        <col class="date_column">
+        <% projectCategories.forEach(project_category => { %>
+            <col>
+        <% }) %>
+    </colgroup>
     <tr>
       <th>Month Year</th>
       <% projectCategories.forEach(project_category => { %>
@@ -16,7 +24,7 @@
                         <td>
                             <% local_data_file.forEach(task_item => { %>
                             <% if (task_item.category === col_project_category && parseInt(task_item.date.slice(5,7)) == month && parseInt(task_item.date.slice(0,4)) == year) { %>
-                                <%= task_item.task %><br>
+                                <div><%= task_item.task %></div>
                             <% } %> 
                             <% }) %>
                         </td>
@@ -33,7 +41,7 @@
                         <td>
                             <% local_data_file.forEach(task_item => { %>
                             <% if (task_item.category === col_project_category && parseInt(task_item.date.slice(5,7)) == month && parseInt(task_item.date.slice(0,4)) == year) { %>
-                                <%= task_item.task %><br>
+                                <div><%= task_item.task %></div>
                             <% } %> 
                             <% }) %>
                         </td>
@@ -50,7 +58,7 @@
                         <td>
                             <% local_data_file.forEach(task_item => { %>
                             <% if (task_item.category === col_project_category && parseInt(task_item.date.slice(5,7)) == month && parseInt(task_item.date.slice(0,4)) == year) { %>
-                                <%= task_item.task %><br>
+                                <div><%= task_item.task %></div>
                             <% } %> 
                             <% }) %>
                         </td>
@@ -59,4 +67,5 @@
             <% } %>
         <% } %> 
     <% } %>
-  </table>
+</table>
+</div>

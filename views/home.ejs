@@ -1,5 +1,11 @@
 <%- include("partials/head") %> 
 <body>
-    <%- include("partials/master-list") %> 
+    <% if (local_data_file==[]) { %>
+    <h1>EMPTY</h1>
+    <% } else { %>
+        <%- include("partials/master-list") %> 
+    <% } %>
+
+    
 </body>
 </html>
