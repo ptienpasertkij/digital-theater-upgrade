@@ -38,3 +38,19 @@ td div {
     padding: 5px;
     margin: 8px;
 }
+
+.Theater {
+    background-color: #FFAC81;
+}
+
+.Lobby {
+    background-color: #FF928B;
+}
+
+.Lab {
+    background-color: #EFE9AE;
+}
+
+.Others {
+    background-color: #CDEAC0;
+}

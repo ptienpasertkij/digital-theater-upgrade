@@ -24,7 +24,7 @@
                         <td>
                             <% local_data_file.forEach(task_item => { %>
                             <% if (task_item.category === col_project_category && parseInt(task_item.date.slice(5,7)) == month && parseInt(task_item.date.slice(0,4)) == year) { %>
-                                <div><%= task_item.task %></div>
+                                <div class="<%= task_item.category %>"><%= task_item.task %></div>
                             <% } %> 
                             <% }) %>
                         </td>
@@ -41,7 +41,7 @@
                         <td>
                             <% local_data_file.forEach(task_item => { %>
                             <% if (task_item.category === col_project_category && parseInt(task_item.date.slice(5,7)) == month && parseInt(task_item.date.slice(0,4)) == year) { %>
-                                <div><%= task_item.task %></div>
+                                <div class="<%= task_item.category %>"><%= task_item.task %></div>
                             <% } %> 
                             <% }) %>
                         </td>
@@ -58,7 +58,7 @@
                         <td>
                             <% local_data_file.forEach(task_item => { %>
                             <% if (task_item.category === col_project_category && parseInt(task_item.date.slice(5,7)) == month && parseInt(task_item.date.slice(0,4)) == year) { %>
-                                <div><%= task_item.task %></div>
+                                <div class="<%= task_item.category %>"><%= task_item.task %></div>
                             <% } %> 
                             <% }) %>
                         </td>
