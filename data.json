@@ -1,56 +1,182 @@
 [
   {
-    "taskID": "bT61wQunnqLTvsALC8hWJc",
-    "task": "New Lab Task",
-    "category": "Lab",
-    "date": "2021-05-26"
-  },
-  {
-    "taskID": "bdp8zTASbMpu6iumbgvUZd",
-    "task": "Add new taskDasdf;alsdfk",
-    "category": "Others",
-    "date": "2021-05-26"
-  },
-  {
-    "taskID": "kuxdS1Ar47nunsp49nZCgh",
-    "task": "Test item",
+    "taskID": "9ffc6UDWxgNSnX3PJCpYDK",
+    "task": "Demolition - Ticket Booth",
     "category": "Lobby",
-    "date": "2021-05-27"
+    "date": "2021-05-25"
   },
   {
-    "taskID": "f26q6hmf93ShX9pQnQDqCv",
-    "task": "Test Lobby 2234",
+    "taskID": "i5EfRg5Mnwo6LxTufu3Cf3",
+    "task": "Ticket Pricing & Projections, Rental Costs (GS, FIN)",
     "category": "Others",
-    "date": "2021-05-28"
+    "date": "2021-06-01"
   },
   {
-    "taskID": "iAmzCG5M3L5fQ4UjgFU23S",
-    "task": "Roar",
-    "category": "Theater",
-    "date": "2021-05-29"
-  },
-  {
-    "taskID": "aStHUqQqeaS5PPHkNxEPva",
-    "task": "Stringify",
-    "category": "Theater",
-    "date": "2021-06-02"
-  },
-  {
-    "taskID": "29K85eTVawTJ8LE4MwcFcS",
-    "task": "An August Task",
+    "taskID": "aQ78xxS7E2KFudcBDaEjJk",
+    "task": "Demolition - Signage, Booth, Upper",
     "category": "Lobby",
-    "date": "2021-08-30"
+    "date": "2021-06-01"
   },
   {
-    "taskID": "aXkmy3RxYDC646HxxzyZCa",
-    "task": "Next year's task",
+    "taskID": "oH5Ew9wMNoKKfL9vqmGWRG",
+    "task": "Content & Schedule (EDU)",
+    "category": "Others",
+    "date": "2021-06-01"
+  },
+  {
+    "taskID": "bKSgiW8Jp6KMgCj5Cup13u",
+    "task": "IMAX Loadout",
     "category": "Lab",
-    "date": "2022-05-26"
+    "date": "2021-06-01"
   },
   {
-    "taskID": "wg9cmziMgJEknKnkehqEve",
-    "task": "YY",
+    "taskID": "tGCLn4oRtTVFyNZsj8BDTa",
+    "task": "D3D Visit",
     "category": "Theater",
-    "date": "2023-05-26"
+    "date": "2021-06-17"
+  },
+  {
+    "taskID": "5SVA8hiSnaZybpwcVkwsQN",
+    "task": "Equipment Plan & Budget (EDU, IT)",
+    "category": "Lab",
+    "date": "2021-07-01"
+  },
+  {
+    "taskID": "n8btD1qRvM6nsEcmx2FbRd",
+    "task": "Renderings as required (IT)",
+    "category": "Others",
+    "date": "2021-07-01"
+  },
+  {
+    "taskID": "qSroG8Lg1a4yNcw1Q8fNGK",
+    "task": "Demolition - Seats, Equipment, Signage",
+    "category": "Theater",
+    "date": "2021-07-01"
+  },
+  {
+    "taskID": "7JKTdwzFCvvywragdhaqL9",
+    "task": "Color Palette - Walls, Floors, Theatre, Seats (IT)",
+    "category": "Others",
+    "date": "2021-07-01"
+  },
+  {
+    "taskID": "4WTwWGiTAcyoMvxpX77mHJ",
+    "task": "Paint & Flooring",
+    "category": "Lab",
+    "date": "2021-09-01"
+  },
+  {
+    "taskID": "jHHBE5WruLS2ti8QAAdPzS",
+    "task": "Equipment Install",
+    "category": "Lab",
+    "date": "2021-10-01"
+  },
+  {
+    "taskID": "jEtrststzHBJFAYQMuFpVY",
+    "task": "Exhibits",
+    "category": "Lobby",
+    "date": "2021-10-01"
+  },
+  {
+    "taskID": "hDCMofZatB6aYZNTEAjh8K",
+    "task": "Install Screen",
+    "category": "Theater",
+    "date": "2021-10-01"
+  },
+  {
+    "taskID": "qANTHzebQChC664RvAh1WW",
+    "task": "HVAC Prep",
+    "category": "Theater",
+    "date": "2021-10-01"
+  },
+  {
+    "taskID": "jXWz3CcYAxa4Ra9tDE8n4o",
+    "task": "Seating Layout & Options",
+    "category": "Lobby",
+    "date": "2021-10-01"
+  },
+  {
+    "taskID": "4AptAyXdqD8Qedmd1UHGBG",
+    "task": "Glass Entry Doors (Solvay Glass)",
+    "category": "Lab",
+    "date": "2021-11-01"
+  },
+  {
+    "taskID": "eiySUETXciwxHTJ4kF5tzB",
+    "task": "Signage - Interior & Exterior",
+    "category": "Lab",
+    "date": "2021-11-01"
+  },
+  {
+    "taskID": "1trfySQ6z2jYTBwCJJ2s7r",
+    "task": "Install Light & Sound",
+    "category": "Theater",
+    "date": "2021-11-15"
+  },
+  {
+    "taskID": "vC2VGh6AMzLxruKsjmpPth",
+    "task": "Carpet - Upper & Lower",
+    "category": "Lobby",
+    "date": "2021-12-01"
+  },
+  {
+    "taskID": "pGbti8mEzcRqzEmqZWeE76",
+    "task": "Paint",
+    "category": "Theater",
+    "date": "2021-12-01"
+  },
+  {
+    "taskID": "e7g6GLMqvAKdWGeXiakLJi",
+    "task": "Walls - Soundproofing",
+    "category": "Theater",
+    "date": "2021-12-01"
+  },
+  {
+    "taskID": "vK2wiSxt42X8VNEQyAv8Tc",
+    "task": "Install Seats",
+    "category": "Theater",
+    "date": "2021-12-01"
+  },
+  {
+    "taskID": "qpTG9ELUhobh7C76q3X45m",
+    "task": "Floors/Carpet",
+    "category": "Theater",
+    "date": "2021-12-01"
+  },
+  {
+    "taskID": "jeNndrp9NMLXrEPAXeV6cm",
+    "task": "Paint - Upper & Lower",
+    "category": "Lobby",
+    "date": "2021-12-01"
+  },
+  {
+    "taskID": "vc7fNAJ3AoBwv25gffiD7t",
+    "task": "Kiosks (GS, IT)",
+    "category": "Lobby",
+    "date": "2022-01-01"
+  },
+  {
+    "taskID": "coheTD4gZhzW5KKAU569gL",
+    "task": "Indoor Signage - Ph 3 Exterior Wall, Lobby Entry, Lab Interior & Exterior, Base of Screen, Kiosk plaques, Sound signage, Lighting Signage, Seating Signage & Plaques",
+    "category": "Others",
+    "date": "2022-01-01"
+  },
+  {
+    "taskID": "6dmSnoiEPQbzRDDzUg1r8D",
+    "task": "D3D Complete Install",
+    "category": "Theater",
+    "date": "2022-01-01"
+  },
+  {
+    "taskID": "ck2EzjNYbmSaK7ZhzmUckt",
+    "task": "Outdoor Signage",
+    "category": "Others",
+    "date": "2022-01-01"
+  },
+  {
+    "taskID": "uiGr5b67ntF2yXiLTqo9WD",
+    "task": "Vending/Concessions (Sr. Staff)",
+    "category": "Lobby",
+    "date": "2022-01-01"
   }
 ]
